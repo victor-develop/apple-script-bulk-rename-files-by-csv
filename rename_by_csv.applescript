@@ -13,7 +13,7 @@ tell application "Finder"
 	set csv_file_in_full_path to (current_dir_posix & csv_file_name & ".csv")
 	-- now `read` command can correctly locate the file as a whole text
 	-- `paragraphs` breaks the text into a list of rows
-	set csv_rows to paragraphs of (read csv_file_in_full_path)
+	set csv_rows to paragraphs of (read csv_file_in_full_path as «class utf8»)
 	-- this line is so hard to explain: temporarily save the system-wise text delimiters. and we are going to restore it to system at the end of program
 	set {the_original_text_delimiter_of_system, my text item delimiters} to {my text item delimiters, ","}
 	
